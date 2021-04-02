@@ -1,11 +1,13 @@
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
-  return (
-    <div>
-      <h1>Unsplash Client</h1>
-    </div>
-  );
+	return (
+		<div>
+			<Navbar />
+			<h1>Unsplash Client</h1>
+		</div>
+	);
 }
 
 export default App;
