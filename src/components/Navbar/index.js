@@ -9,6 +9,7 @@ const Navbar = () => {
 			<img className={style.logo} src={Logo} alt="" />
 			<QueryInput />
 			<CollectionSelect />
+			<button className={style.searchButton}>SEARCH</button>
 		</div>
 	);
 };
