@@ -2,6 +2,7 @@ import { useState } from "react";
 import style from "./style.module.css";
 
 const CollectionSelect = () => {
+	// eslint-disable-next-line
 	const [collections, setCollections] = useState([
 		["happiness", "Happiness"],
 		["thanksgiving", "Thanksgiving"],
