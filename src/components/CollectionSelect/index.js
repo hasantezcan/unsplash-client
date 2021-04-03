@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from "./style.module.css";
 
 const CollectionSelect = () => {
 	const [collections, setCollections] = useState([
@@ -10,7 +11,7 @@ const CollectionSelect = () => {
 
 	return (
 		<div>
-			<select defaultValue="happiness">
+			<select className={style.collectionSelect} defaultValue="happiness">
 				{collections.map(([value, text]) => (
 					<option key={value} value={value}>
 						{text}
