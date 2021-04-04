@@ -4,13 +4,7 @@ import style from "./style.module.css";
 const QueryInput = () => {
 	const { queryInput, setQueryInput } = useSearch();
 
-	const cleanQueryInput = (event) => {
-		if (event.charCode === 13) {
-			event.preventDefault();
-			setQueryInput("");
-		}
-	};
-
+	// TODO Handle Clean Input when the Search Button Clicked
 	return (
 		<div>
 			<input
@@ -19,7 +13,6 @@ const QueryInput = () => {
 				type="text"
 				value={queryInput}
 				onChange={(e) => setQueryInput(e.target.value)}
-				onKeyPress={cleanQueryInput}
 				placeholder="What kind of picture do you want?"
 			></input>
 		</div>

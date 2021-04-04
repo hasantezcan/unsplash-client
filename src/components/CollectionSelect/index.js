@@ -11,7 +11,7 @@ const CollectionSelect = () => {
 			id: e.target[e.target.selectedIndex].id,
 		});
 	};
-
+	// TODO Handle Clean Input when the Search Button Clicked
 	return (
 		<div>
 			<select
