@@ -14,16 +14,17 @@ const WithSearch = ({ children }) => {
 			);
 
 			if (data.length && data.length) {
-				const temp = [];
 				await data.map((collection, i) => {
-					temp.push([
-						collection.title,
-						collection.title.charAt(0).toUpperCase() +
-							collection.title.slice(1),
+					setCollections((state) => [
+						...state,
+						[
+							collection.title,
+							collection.title.charAt(0).toUpperCase() +
+								collection.title.slice(1),
+						],
 					]);
+					console.log(collection.title, i, collections);
 				});
-				console.log("ARRAY", temp);
-				setCollections(temp);
 			}
 			console.log(collections);
 		};
