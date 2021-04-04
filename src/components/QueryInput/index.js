@@ -15,7 +15,7 @@ const QueryInput = () => {
 		<div>
 			<input
 				className={style.queryInput}
-				autofocus
+				autoFocus
 				type="text"
 				value={queryInput}
 				onChange={(e) => setQueryInput(e.target.value)}
