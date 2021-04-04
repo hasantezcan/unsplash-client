@@ -5,8 +5,11 @@ const CollectionSelect = () => {
 	const { collections, setSelectedCollection } = useSearch();
 
 	const handleCollectionChose = (e) => {
-		console.log("Fruit Selected!!");
-		setSelectedCollection(e.target.value);
+		console.log("Collection Selected!!");
+		setSelectedCollection({
+			value: e.target.value,
+			id: e.target[e.target.selectedIndex].id,
+		});
 	};
 
 	return (
@@ -16,8 +19,8 @@ const CollectionSelect = () => {
 				onChange={handleCollectionChose}
 				defaultValue=""
 			>
-				{collections.map(([value, text]) => (
-					<option key={value} value={value}>
+				{collections.map(([id, text]) => (
+					<option key={id} value={text} id={id}>
 						{text}
 					</option>
 				))}
