@@ -4,14 +4,14 @@ import { useSearch } from "./Context/Search";
 import "./App.css";
 
 function App() {
-	const { queryInput, collections } = useSearch();
+	const { queryInput, selectedCollection } = useSearch();
 
 	return (
 		<div>
 			<Navbar />
 			<h1>Unsplash Client</h1>
-			<p>{queryInput}</p>
-			<p>{collections}</p>
+			<p>QueryInput = {queryInput}</p>
+			<p>Collection = {selectedCollection}</p>
 		</div>
 	);
 }

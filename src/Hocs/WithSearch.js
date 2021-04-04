@@ -8,9 +8,17 @@ const WithSearch = ({ children }) => {
 		["blank Walls", "Blank Walls"],
 		["pastel & Pale", "Pastel & Pale"],
 	]);
+	const [selectedCollection, setSelectedCollection] = useState("");
 	const [queryInput, setQueryInput] = useState("");
 
-	const props = { collections, setCollections, queryInput, setQueryInput };
+	const props = {
+		collections,
+		setCollections,
+		queryInput,
+		setQueryInput,
+		selectedCollection,
+		setSelectedCollection,
+	};
 
 	return <SearchProvider value={props}>{children}</SearchProvider>;
 };
