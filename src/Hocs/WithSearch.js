@@ -3,6 +3,7 @@ import { SearchProvider } from "../Context/Search";
 
 const WithSearch = ({ children }) => {
 	const [collections, setCollections] = useState([
+		["", "Please Select Collection"],
 		["happiness", "Happiness"],
 		["thanksgiving", "Thanksgiving"],
 		["blank Walls", "Blank Walls"],

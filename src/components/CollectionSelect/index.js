@@ -14,7 +14,7 @@ const CollectionSelect = () => {
 			<select
 				className={style.collectionSelect}
 				onChange={handleCollectionChose}
-				defaultValue="happiness"
+				defaultValue=""
 			>
 				{collections.map(([value, text]) => (
 					<option key={value} value={value}>

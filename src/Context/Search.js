@@ -2,8 +2,8 @@ import { createContext, useContext } from "react";
 
 // TODO refactor this parameters
 // const defaultContext = {
-//   QueryInput = "",
-//   Collection = ""
+//   queryInput: "World Peoples",
+//   selectedCollection: "happiness"
 // }
 
 const SearchContext = createContext(null)
