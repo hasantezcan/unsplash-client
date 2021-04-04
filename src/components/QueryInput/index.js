@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const QueryInput = () => {
-	const [queryInput, setQueryInput] = useState("");
+	const { queryInput, setQueryInput } = useSearch();
 
 	const cleanQueryInput = (event) => {
 		if (event.charCode === 13) {

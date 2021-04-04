@@ -1,14 +1,8 @@
-import { useState } from "react";
+import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const CollectionSelect = () => {
-	// eslint-disable-next-line
-	const [collections, setCollections] = useState([
-		["happiness", "Happiness"],
-		["thanksgiving", "Thanksgiving"],
-		["blank Walls", "Blank Walls"],
-		["pastel & Pale", "Pastel & Pale"],
-	]);
+	const { collections } = useSearch();
 
 	return (
 		<div>
