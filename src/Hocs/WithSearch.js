@@ -57,6 +57,7 @@ const WithSearch = ({ children }) => {
 		};
 		fetchQurey();
 		setSearchStatus(false);
+		// eslint-disable-next-line
 	}, [searchStatus]);
 
 	const props = {
