@@ -11,6 +11,8 @@ const WithSearch = ({ children }) => {
 	const [searchStatus, setSearchStatus] = useState(false);
 	const [queryResults, setQueryResults] = useState([]);
 
+	const URL = `https://api.unsplash.com/`;
+	const KEY = `client_id=${process.env.REACT_APP_UNSPLASH_API}`;
 	// Fetch Collections
 	useEffect(() => {
 		setCollections([["", "Please Select Collection"]]);
@@ -42,18 +44,18 @@ const WithSearch = ({ children }) => {
 			}
 			let ENDPOINT = "";
 			if ((queryInput.length && selectedCollection.id) || queryInput.length) {
-				ENDPOINT = `https://api.unsplash.com/search/photos?page=1&query=${queryInput}${
+				ENDPOINT = `${URL}search/photos?page=1&query=${queryInput}${
 					selectedCollection.id ? "&collections=" + selectedCollection.id : ""
-				}&client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+				}&${KEY}`;
 			} else if (!queryInput.length && selectedCollection.id) {
-				ENDPOINT = `https://api.unsplash.com/collections/${selectedCollection.id}?client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+				ENDPOINT = `${URL}collections/${selectedCollection.id}?${KEY}`;
 			}
 
 			console.log("ENDPOINT", ENDPOINT);
 			const { data } = await axios.get(ENDPOINT);
 
 			setQueryResults(data);
-			console.log("RESULTTT", queryResults);
+			console.log("DATA RESULTS:", queryResults);
 		};
 		fetchQurey();
 		setSearchStatus(false);
