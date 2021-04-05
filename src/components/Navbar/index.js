@@ -6,6 +6,7 @@ import Logo from "../../assets/images/Logo.png";
 import style from "./style.module.css";
 
 const Navbar = () => {
+
 	return (
 		<div className={style.navbar}>
 			<img className={style.logo} src={Logo} alt="" />
