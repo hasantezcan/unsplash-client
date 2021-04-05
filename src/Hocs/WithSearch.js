@@ -4,13 +4,14 @@ import { SearchProvider } from "../Context/Search";
 
 const WithSearch = ({ children }) => {
 	const [collections, setCollections] = useState([
-		[0, "Please Select Collection"],
+		["", "Please Select Collection"],
 	]);
 	const [selectedCollection, setSelectedCollection] = useState({});
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
 	const [queryResults, setQueryResults] = useState([]);
 
+	// Fetch Collections
 	useEffect(() => {
 		setCollections([["", "Please Select Collection"]]);
 		const fetchCollections = async () => {
@@ -19,39 +20,39 @@ const WithSearch = ({ children }) => {
 			);
 
 			if (data.length && data.length) {
-				await data.map((collection, i) => {
-					setCollections((state) => [
-						...state,
-						[
-							collection.id,
-							collection.title.charAt(0).toUpperCase() +
-								collection.title.slice(1),
-						],
+				const temp = [];
+				await data.forEach((collection, i) => {
+					temp.push([
+						collection.id,
+						collection.title.charAt(0).toUpperCase() +
+							collection.title.slice(1),
 					]);
-					// console.log(collection.title, i, collections);
 				});
+				setCollections((state) => [...state, ...temp]);
 			}
-			// console.log("STATE", collections);
 		};
 		fetchCollections();
 	}, []);
 
+	// Fetch images
 	useEffect(() => {
 		const fetchQurey = async () => {
 			if (!searchStatus) {
 				return false;
 			}
+			let ENDPOINT = "";
+			if ((queryInput.length && selectedCollection.id) || queryInput.length) {
+				ENDPOINT = `https://api.unsplash.com/search/photos?page=1&query=${queryInput}${
+					selectedCollection.id ? "&collections=" + selectedCollection.id : ""
+				}&client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+			} else if (!queryInput.length && selectedCollection.id) {
+				ENDPOINT = `https://api.unsplash.com/collections/${selectedCollection.id}?client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+			}
 
-			const ENDPOINT = `https://api.unsplash.com/search/photos?page=1${
-				queryInput.length ? "&query=" + queryInput : ""
-			}${
-				selectedCollection.id ? "&collections=" + selectedCollection.id : ""
-			}&client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+			console.log("ENDPOINT", ENDPOINT);
 			const { data } = await axios.get(ENDPOINT);
 
-			console.log(ENDPOINT);
-
-			setQueryResults(data.results);
+			setQueryResults(data);
 			console.log("RESULTTT", queryResults);
 		};
 		fetchQurey();
@@ -67,6 +68,8 @@ const WithSearch = ({ children }) => {
 		setSelectedCollection,
 		searchStatus,
 		setSearchStatus,
+		queryResults,
+		setQueryResults,
 	};
 
 	return <SearchProvider value={props}>{children}</SearchProvider>;
