@@ -6,13 +6,16 @@ import Logo from "../../assets/images/Logo.png";
 import style from "./style.module.css";
 
 const Navbar = () => {
-
 	return (
 		<div className={style.navbar}>
-			<img className={style.logo} src={Logo} alt="" />
-			<QueryInput />
-			<CollectionSelect />
-			<SearchButton />
+			<div className={style.logo}>
+				<img src={Logo} alt="" />
+			</div>
+			<div className={style.searchBox}>
+				<QueryInput />
+				<CollectionSelect />
+				<SearchButton />
+			</div>
 		</div>
 	);
 };

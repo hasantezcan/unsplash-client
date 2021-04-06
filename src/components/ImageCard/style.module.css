@@ -1,0 +1,26 @@
+.link {
+  position: relative;
+  transition: all 0.2s;
+}
+
+.image img {
+  position: relative;
+  width: 90%;
+}
+
+.button {
+  position: absolute;
+  top: -14px;
+  left: 284px;
+  opacity: 0%;
+  transition: all 0.2s;
+  z-index: 999;
+}
+
+.link:hover {
+  filter: grayscale(60%);
+}
+
+.link:hover .button {
+  opacity: 100%;
+}

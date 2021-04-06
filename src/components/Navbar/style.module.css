@@ -1,14 +1,27 @@
 .navbar {
-	background-color: #050417;
-	height: 120px;
-	width: 100%;
-	display: flex;
-	align-items: center;
+  background-color: #050417;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  box-shadow: 0 0 20px -5px black;
+  z-index: 5;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
 }
 
 .logo {
-	width: 70px;
-	height: 70px;
-	margin-left: 50px;
+  margin-left: 50px;
+  width: 40%;
 }
 
+.logo img {
+  width: 70px;
+  height: 70px;
+}

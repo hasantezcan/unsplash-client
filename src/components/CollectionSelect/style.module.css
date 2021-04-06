@@ -1,9 +1,12 @@
+.collectionWrapper {
+  position: relative;
+}
+
 .collectionSelect {
-	margin-left: 86px;
-	width: 400px;
-	height: 50px;
-	padding-left: 22px;
-	padding-right: 22px;
+  position: relative;
+  width: 17vw;
+  height: 50px;
+  padding: 10px 25px;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
@@ -11,4 +14,20 @@
   background-position-x: 98%;
   background-position-y: 50%;
   background-color: #fff;
+  border-radius: 4px;
+}
+
+.collectionSelect select {
+  display: none;
+}
+
+.collectionWrapper::before {
+  content: "";
+  position: absolute;
+  width: 16vw;
+  height: 15px;
+  background-color: #d5d7e5;
+  top: 40px;
+  right: 9px;
+  border-radius: 4px;
 }

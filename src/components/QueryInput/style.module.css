@@ -1,6 +1,6 @@
 .queryInput {
-	margin-left: 86px;
-	width: 400px;
+  width: 17vw;
 	height: 50px;
-	padding-left: 22px;
+	padding: 10px 25px;
+	border-radius: 4px;
 }

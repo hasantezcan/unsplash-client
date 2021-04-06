@@ -13,7 +13,7 @@ const CollectionSelect = () => {
 	};
 	// TODO Handle Clean Input when the Search Button Clicked
 	return (
-		<div>
+		<div className={style.collectionWrapper}>
 			<select
 				className={style.collectionSelect}
 				onChange={handleCollectionChose}
