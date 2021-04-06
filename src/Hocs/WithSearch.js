@@ -38,7 +38,7 @@ const WithSearch = ({ children }) => {
 
 	// Fetch images
 	useEffect(() => {
-		const fetchQurey = async () => {
+		const fetchImages = async () => {
 			if (!searchStatus) {
 				return false;
 			}
@@ -48,16 +48,16 @@ const WithSearch = ({ children }) => {
 					selectedCollection.id ? "&collections=" + selectedCollection.id : ""
 				}&${KEY}`;
 			} else if (!queryInput.length && selectedCollection.id) {
-				ENDPOINT = `${URL}collections/${selectedCollection.id}?${KEY}`;
+				ENDPOINT = `${URL}collections/${selectedCollection.id}/photos?${KEY}`;
 			}
 
 			console.log("ENDPOINT", ENDPOINT);
 			const { data } = await axios.get(ENDPOINT);
 
-			setQueryResults(data);
+			data.results ? setQueryResults(data.results) : setQueryResults(data);
 			console.log("DATA RESULTS:", queryResults);
 		};
-		fetchQurey();
+		fetchImages();
 		setSearchStatus(false);
 		// eslint-disable-next-line
 	}, [searchStatus]);

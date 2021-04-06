@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import ImageList from "./components/ImageList";
 
 function App() {
-	// const { queryInput, selectedCollection } = useSearch();
+	// const { queryInput, selectedCollection, queryResults } = useSearch();
 
 	return (
 		<div>
@@ -17,6 +17,7 @@ function App() {
 					Collection =
 					{selectedCollection.id ? selectedCollection.value : "Not Selected"}
 				</p>
+				<h2>{selectedCollection.id}</h2>
 			</div> */}
 			<ImageList />
 		</div>
