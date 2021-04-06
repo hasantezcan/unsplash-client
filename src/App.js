@@ -10,12 +10,14 @@ function App() {
 	return (
 		<div>
 			<Navbar />
-			<h1>Unsplash Client</h1>
-			<p>QueryInput = {queryInput ? queryInput : "Not Entered"}</p>
-			<p>
-				Collection =
-				{selectedCollection.id ? selectedCollection.value : "Not Selected"}
-			</p>
+			{/* <div style={{ paddingTop: "150px" }}>
+				<h1>Unsplash Client</h1>
+				<p>QueryInput = {queryInput ? queryInput : "Not Entered"}</p>
+				<p>
+					Collection =
+					{selectedCollection.id ? selectedCollection.value : "Not Selected"}
+				</p>
+			</div> */}
 			<ImageList />
 		</div>
 	);
