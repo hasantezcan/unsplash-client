@@ -2,9 +2,15 @@ import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const QueryInput = () => {
-	const { queryInput, setQueryInput } = useSearch();
+	const { queryInput, setQueryInput, setSearchStatus } = useSearch();
 
-	// TODO Handle Clean Input when the Search Button Clicked
+	const handleSearchStatus = (event) => {
+		if (event.charCode === 13) {
+			event.preventDefault();
+			setSearchStatus(true);
+		}
+	};
+
 	return (
 		<div>
 			<input
@@ -13,6 +19,7 @@ const QueryInput = () => {
 				type="text"
 				value={queryInput}
 				onChange={(e) => setQueryInput(e.target.value)}
+				onKeyPress={handleSearchStatus}
 				placeholder="What kind of picture do you want?"
 			></input>
 		</div>

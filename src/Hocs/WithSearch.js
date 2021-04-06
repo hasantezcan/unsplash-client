@@ -13,6 +13,7 @@ const WithSearch = ({ children }) => {
 
 	const URL = `https://api.unsplash.com/`;
 	const KEY = `client_id=${process.env.REACT_APP_UNSPLASH_API}`;
+	
 	// Fetch Collections
 	useEffect(() => {
 		setCollections([["", "Please Select Collection"]]);

@@ -9,7 +9,9 @@ const Navbar = () => {
 	return (
 		<div className={style.navbar}>
 			<div className={style.logo}>
-				<img src={Logo} alt="" />
+				<a href="/">
+					<img src={Logo} alt="" />
+				</a>
 			</div>
 			<div className={style.searchBox}>
 				<QueryInput />

@@ -2,7 +2,7 @@ import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const CollectionSelect = () => {
-	const { collections, setSelectedCollection } = useSearch();
+	const { collections, setSelectedCollection, setSearchStatus } = useSearch();
 
 	const handleCollectionChose = (e) => {
 		console.log("Collection Selected!!");
@@ -10,8 +10,9 @@ const CollectionSelect = () => {
 			value: e.target.value,
 			id: e.target[e.target.selectedIndex].id,
 		});
+		setSearchStatus(true);
 	};
-	// TODO Handle Clean Input when the Search Button Clicked
+
 	return (
 		<div className={style.collectionWrapper}>
 			<select
