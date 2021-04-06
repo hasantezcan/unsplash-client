@@ -1,11 +1,11 @@
-import { useSearch } from "./Context/Search";
+// import { useSearch } from "./Context/Search";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
 import ImageList from "./components/ImageList";
 
 function App() {
-	const { queryInput, selectedCollection } = useSearch();
+	// const { queryInput, selectedCollection } = useSearch();
 
 	return (
 		<div>
