@@ -1,26 +1,93 @@
-.link {
+.imageCard {
+  position: relative;
+}
+
+.image {
   position: relative;
   transition: all 0.2s;
 }
 
+.image:hover {
+  filter: grayscale(60%);
+}
+
 .image img {
-  position: relative;
   width: 90%;
 }
 
 .button {
-  position: absolute;
-  top: -14px;
-  left: 284px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 40px;
+  border-radius: 5px;
   opacity: 0%;
+  background-color: #f3f3f3;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.2));
   transition: all 0.2s;
-  z-index: 999;
 }
 
-.link:hover {
-  filter: grayscale(60%);
+.downloadButton {
+  position: absolute;
+  bottom: 15px;
+  right: 13%;
 }
 
-.link:hover .button {
+.imageCard:hover .downloadButton {
+  opacity: 90%;
+}
+
+.imageCard:hover, .downloadButton .image:hover {
+  filter: grayscale(50%);
+}
+
+.artist {
+  position: absolute;
+  width: 42px;
+  height: 36px;
+  bottom: 17px;
+  left: 4%;
+  opacity: 0%;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.4));
+  transition: all 0.2s;
+}
+
+.imageCard:hover .artist {
   opacity: 100%;
+}
+
+.artist p {
+  left: 42px;
+  top: 5px;
+  color: white;
+  font-size: 17px;
+}
+
+.artist img {
+  width: 35px;
+  border-radius: 100%;
+}
+
+.downloadIcon {
+  transition: all 0.1s;
+  font-size: 24px;
+  color: #767676;
+}
+
+.downloadButton:hover .downloadIcon {
+  color: #242424;
+  font-weight: bold;
+}
+
+.collectButton {
+  position: absolute;
+  top: 15px;
+  right: 13%;
+  transition: all 0.1s;
+  color: #767676;
+}
+
+.imageCard:hover .collectButton {
+  opacity: 90%;
 }

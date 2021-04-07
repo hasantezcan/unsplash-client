@@ -24,7 +24,7 @@ const ImageList = () => {
 						columnClassName="my-masonry-grid_column"
 					>
 						{queryResults.map((image, i) => {
-							return <ImageCard info={image} key={i} />;
+							return <ImageCard image={image} key={i} />;
 						})}
 					</Masonry>
 				</div>
