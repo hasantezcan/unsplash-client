@@ -12,6 +12,7 @@ const QueryInput = () => {
 	const handleSearchStatus = (event) => {
 		if (event.charCode === 13) {
 			event.preventDefault();
+			setCurrentPageNumber(1);
 			setSearchStatus(true);
 		}
 	};
@@ -28,7 +29,6 @@ const QueryInput = () => {
 				value={queryInput}
 				onFocus={clearInput}
 				onChange={(e) => {
-					setCurrentPageNumber(1);
 					setQueryInput(e.target.value);
 				}}
 				onKeyPress={handleSearchStatus}

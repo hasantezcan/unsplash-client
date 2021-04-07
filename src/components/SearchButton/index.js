@@ -2,9 +2,10 @@ import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const SearchButton = () => {
-	const { setSearchStatus } = useSearch();
+	const { setSearchStatus, setCurrentPageNumber } = useSearch();
 	
 	const handleSearchStatus = () => {
+		setCurrentPageNumber(1);
 		setSearchStatus(true);
 	};
 

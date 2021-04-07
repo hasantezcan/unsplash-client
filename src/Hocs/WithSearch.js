@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { SearchProvider } from "../Context/Search";
+import axios from "axios";
 
 const WithSearch = ({ children }) => {
 	const [collections, setCollections] = useState([
@@ -9,7 +9,7 @@ const WithSearch = ({ children }) => {
 	const [selectedCollection, setSelectedCollection] = useState({});
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
-	const [queryResults, setQueryResults] = useState([]);
+	const [queryResults, setQueryResults] = useState("NO DATA");
 	const [totalPageCount, setTotalPageCount] = useState("");
 	const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
@@ -42,7 +42,16 @@ const WithSearch = ({ children }) => {
 	// Fetch images
 	useEffect(() => {
 		const fetchImages = async () => {
-			if (!searchStatus) {
+			// console.log(
+			// 	"---------> PARAMS",
+			// 	"Query:",
+			// 	queryInput,
+			// 	"Collection:",
+			// 	selectedCollection.id
+			// );
+			if (!searchStatus | !queryInput && selectedCollection.id === undefined) {
+				setQueryResults("WILL");
+				// console.log("NO FETCH:", queryResults);
 				return false;
 			}
 			let ENDPOINT = "";
@@ -65,7 +74,7 @@ const WithSearch = ({ children }) => {
 				? setTotalPageCount(data.total_pages)
 				: setTotalPageCount("");
 			data.results ? setQueryResults(data.results) : setQueryResults(data);
-			console.log("DATA RESULTS:", queryResults);
+			// console.log("YES FETCH:", queryResults);
 		};
 		fetchImages();
 		setSearchStatus(false);

@@ -5,6 +5,7 @@ import "./pagination.css";
 import ImageCard from "../ImageCard";
 import Masonry from "react-masonry-css";
 import ReactPaginate from "react-paginate";
+import Loading from "../Loading/index";
 
 const breakpointColumnsObj = {
 	default: 3,
@@ -27,13 +28,10 @@ const ImageList = () => {
 	const handlePageNumber = (e) => {
 		setCurrentPageNumber(e.selected + 1);
 		setSearchStatus(true);
-		// console.log("CHOSEN PAGE:", e.selected + 1);
-		// console.log("CURRENT PAGE NUMBER:", currentPageNumber);
-		// console.log("TOTAL PAGE COUNT:", totalPageCount);
 	};
 
 	if (Array.isArray(queryResults)) {
-		if (queryResults && queryResults.length > 0) {
+		if (queryResults.length > 0) {
 			return (
 				<div className="masonryContainer">
 					<Masonry
@@ -57,20 +55,31 @@ const ImageList = () => {
 						containerClassName={"pagination"}
 						subContainerClassName={"pages pagination"}
 						activeClassName={"active"}
-						forcePage={currentPageNumber-1}
+						forcePage={currentPageNumber - 1}
 					/>
 				</div>
 			);
-		} else if (queryResults && queryResults.length <= 0) {
-			return <p className="masonryContainer">Please enter search parameters</p>;
+		} else if (queryResults.length === 0) {
+			return (
+				<div className="masonryContainer">
+					<p>We can't find any results about that search. </p>
+				</div>
+			);
 		} else {
 			return <p className="masonryContainer">Unexpected Error</p>;
 		}
+	} else if (queryResults === "WILL") {
+		return (
+			<div className="masonryContainer">
+				<Loading />
+			</div>
+		);
 	} else {
 		return (
-			<p className="masonryContainer">
-				We can't find any results about that search.
-			</p>
+			// TODO This section is not working
+			<div className="masonryContainer">
+				<p>Please enter search parameters</p>
+			</div>
 		);
 	}
 };

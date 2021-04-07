@@ -15,8 +15,14 @@ const CollectionSelect = () => {
 			value: e.target.value,
 			id: e.target[e.target.selectedIndex].id,
 		});
-		setCurrentPageNumber(1);
-		setSearchStatus(true);
+	};
+
+	const handleSearchStatus = (event) => {
+		if (event.charCode === 13) {
+			event.preventDefault();
+			setCurrentPageNumber(1);
+			setSearchStatus(true);
+		}
 	};
 
 	return (
@@ -25,6 +31,7 @@ const CollectionSelect = () => {
 				className={style.collectionSelect}
 				onChange={handleCollectionChose}
 				defaultValue=""
+				onKeyPress={handleSearchStatus}
 			>
 				{collections.map(([id, text]) => (
 					<option key={id} value={text} id={id}>
