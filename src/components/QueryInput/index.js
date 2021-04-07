@@ -2,7 +2,12 @@ import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const QueryInput = () => {
-	const { queryInput, setQueryInput, setSearchStatus } = useSearch();
+	const {
+		queryInput,
+		setQueryInput,
+		setSearchStatus,
+		setCurrentPageNumber,
+	} = useSearch();
 
 	const handleSearchStatus = (event) => {
 		if (event.charCode === 13) {
@@ -22,7 +27,10 @@ const QueryInput = () => {
 				type="text"
 				value={queryInput}
 				onFocus={clearInput}
-				onChange={(e) => setQueryInput(e.target.value)}
+				onChange={(e) => {
+					setCurrentPageNumber(1);
+					setQueryInput(e.target.value);
+				}}
 				onKeyPress={handleSearchStatus}
 				placeholder="What kind of picture do you want?"
 			></input>

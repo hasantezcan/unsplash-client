@@ -35,10 +35,11 @@
 }
 
 .imageCard:hover .downloadButton {
-  opacity: 90%;
+  opacity: revert;
 }
 
-.imageCard:hover, .downloadButton .image:hover {
+.imageCard:hover,
+.downloadButton .image:hover {
   filter: grayscale(50%);
 }
 
@@ -54,7 +55,7 @@
 }
 
 .imageCard:hover .artist {
-  opacity: 100%;
+  opacity: revert;
 }
 
 .artist p {
@@ -89,5 +90,5 @@
 }
 
 .imageCard:hover .collectButton {
-  opacity: 90%;
+  opacity: revert;
 }

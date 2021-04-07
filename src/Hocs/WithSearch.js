@@ -10,6 +10,8 @@ const WithSearch = ({ children }) => {
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
 	const [queryResults, setQueryResults] = useState([]);
+	const [totalPageCount, setTotalPageCount] = useState("");
+	const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
 	const URL = `https://api.unsplash.com/`;
 	const KEY = `client_id=${process.env.REACT_APP_UNSPLASH_API}`;
@@ -45,9 +47,13 @@ const WithSearch = ({ children }) => {
 			}
 			let ENDPOINT = "";
 			if ((queryInput.length && selectedCollection.id) || queryInput.length) {
-				ENDPOINT = `${URL}search/photos?page=1&query=${queryInput}${
-					selectedCollection.id ? "&collections=" + selectedCollection.id : ""
-				}&${KEY}`;
+				// prettier-ignore
+				ENDPOINT =
+						`${URL}search/photos?page=${currentPageNumber}&query=${queryInput}${
+								selectedCollection.id
+									? "&collections=" + selectedCollection.id
+									: ""
+						  }&${KEY}`;
 			} else if (!queryInput.length && selectedCollection.id) {
 				ENDPOINT = `${URL}collections/${selectedCollection.id}/photos?${KEY}`;
 			}
@@ -55,6 +61,9 @@ const WithSearch = ({ children }) => {
 			console.log("ENDPOINT", ENDPOINT);
 			const { data } = await axios.get(ENDPOINT);
 
+			data.total_pages
+				? setTotalPageCount(data.total_pages)
+				: setTotalPageCount("");
 			data.results ? setQueryResults(data.results) : setQueryResults(data);
 			console.log("DATA RESULTS:", queryResults);
 		};
@@ -80,6 +89,9 @@ const WithSearch = ({ children }) => {
 		setSearchStatus,
 		queryResults,
 		setQueryResults,
+		totalPageCount,
+		currentPageNumber,
+		setCurrentPageNumber,
 	};
 
 	return <SearchProvider value={props}>{children}</SearchProvider>;

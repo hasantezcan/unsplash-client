@@ -32,7 +32,6 @@ const ImageCard = ({ image }) => {
 
 	return (
 		<div className={style.imageCard}>
-			<p>{selectedCollection.value}</p>
 			{/* {  Image Card } */}
 			<a
 				className={style.image}

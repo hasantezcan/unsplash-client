@@ -2,7 +2,12 @@ import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
 const CollectionSelect = () => {
-	const { collections, setSelectedCollection, setSearchStatus } = useSearch();
+	const {
+		collections,
+		setSelectedCollection,
+		setSearchStatus,
+		setCurrentPageNumber,
+	} = useSearch();
 
 	const handleCollectionChose = (e) => {
 		console.log("Collection Selected!!");
@@ -10,6 +15,7 @@ const CollectionSelect = () => {
 			value: e.target.value,
 			id: e.target[e.target.selectedIndex].id,
 		});
+		setCurrentPageNumber(1);
 		setSearchStatus(true);
 	};
 
