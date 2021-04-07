@@ -13,7 +13,7 @@ const WithSearch = ({ children }) => {
 
 	const URL = `https://api.unsplash.com/`;
 	const KEY = `client_id=${process.env.REACT_APP_UNSPLASH_API}`;
-	
+
 	// Fetch Collections
 	useEffect(() => {
 		setCollections([["", "Please Select Collection"]]);
@@ -62,6 +62,12 @@ const WithSearch = ({ children }) => {
 		setSearchStatus(false);
 		// eslint-disable-next-line
 	}, [searchStatus]);
+
+	// Inital Search
+	useEffect(() => {
+		setQueryInput("Istanbul");
+		setSearchStatus(true);
+	}, []);
 
 	const props = {
 		collections,

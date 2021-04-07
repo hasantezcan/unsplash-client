@@ -11,13 +11,17 @@ const QueryInput = () => {
 		}
 	};
 
+	const clearInput = () => {
+		setQueryInput("");
+	};
+
 	return (
 		<div>
 			<input
 				className={style.queryInput}
-				autoFocus
 				type="text"
 				value={queryInput}
+				onFocus={clearInput}
 				onChange={(e) => setQueryInput(e.target.value)}
 				onKeyPress={handleSearchStatus}
 				placeholder="What kind of picture do you want?"

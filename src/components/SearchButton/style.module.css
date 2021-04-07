@@ -1,9 +1,19 @@
 .searchButton {
   width: 12vw;
-	height: 50px;
-  background: #2A2B8D;
+  height: 50px;
+  background: #2a2b8d;
   border-radius: 25px;
   color: white;
   font-weight: 700;
   border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.searchButton:focus {
+  outline: none;
+}
+
+.searchButton:hover {
+  background: #2a2c8db4;
 }
