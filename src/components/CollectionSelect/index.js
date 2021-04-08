@@ -1,44 +1,55 @@
+import { useState } from "react";
 import { useSearch } from "../../Context/Search";
 import style from "./style.module.css";
 
+import Backdrop from "../Backdrop/index";
+
 const CollectionSelect = () => {
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
 	const {
 		collections,
 		setSelectedCollection,
 		setSearchStatus,
 		setCurrentPageNumber,
+		selectedCollection,
 	} = useSearch();
 
-	const handleCollectionChose = (e) => {
-		console.log("Collection Selected!!");
-		setSelectedCollection({
-			value: e.target.value,
-			id: e.target[e.target.selectedIndex].id,
-		});
-	};
-
-	const handleSearchStatus = (event) => {
-		if (event.charCode === 13) {
-			event.preventDefault();
-			setCurrentPageNumber(1);
-			setSearchStatus(true);
-		}
+	const toggleDropDown = () => {
+		setIsDropdownOpen((prevState) => !prevState);
 	};
 
 	return (
 		<div className={style.collectionWrapper}>
-			<select
-				className={style.collectionSelect}
-				onChange={handleCollectionChose}
-				defaultValue=""
-				onKeyPress={handleSearchStatus}
-			>
-				{collections.map(([id, text]) => (
-					<option key={id} value={text} id={id}>
-						{text}
-					</option>
-				))}
-			</select>
+			<button className={style.collectionSelect} onClick={toggleDropDown}>
+				<div className={style.collectionTitle}>
+					{selectedCollection.id
+						? selectedCollection.value
+						: "Please Select Collection"}
+				</div>
+			</button>
+			{isDropdownOpen && <Backdrop onClick={toggleDropDown} />}
+			{isDropdownOpen && (
+				<div role="list" className={style.collectionOptionGroup}>
+					{collections.map(([id, text]) => (
+						<div
+							className={style.collectionOption}
+							key={id}
+							onClick={() => {
+								setSelectedCollection({
+									value: text,
+									id: id,
+								});
+								setCurrentPageNumber(1);
+								setSearchStatus(true);
+								setIsDropdownOpen(false);
+							}}
+						>
+							{text}
+						</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };
