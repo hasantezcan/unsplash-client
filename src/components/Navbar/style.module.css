@@ -23,5 +23,26 @@
 
 .logo img {
   width: 70px;
-  height: 70px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .searchBox {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: flex-start;
+    height: 90px;
+  }
+
+  .logo {
+    margin-left: 7%;
+    width: unset;
+  }
+
+  .logo img {
+    width: 55px;
+    height: auto;
+  }
 }

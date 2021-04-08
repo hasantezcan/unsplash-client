@@ -23,3 +23,14 @@
   width: 100%;
   padding-top: 150px;
 }
+
+@media (max-width: 768px) {
+  .my-masonry-grid {
+    margin-left: unset;
+    width: 90%;
+  }
+
+  .masonryContainer {
+    padding-top: 110px;
+  }
+}

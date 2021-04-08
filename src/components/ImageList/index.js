@@ -46,7 +46,7 @@ const ImageList = () => {
 					<ReactPaginate
 						previousLabel={"Previous"}
 						nextLabel={"Next"}
-						breakLabel={".."}
+						breakLabel={false}
 						breakClassName={"break-me"}
 						pageCount={totalPageCount}
 						marginPagesDisplayed={1}

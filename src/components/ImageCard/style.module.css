@@ -92,3 +92,9 @@
 .imageCard:hover .collectButton {
   opacity: revert;
 }
+
+@media (max-width: 768px) {
+  .image img {
+    width: 100%;
+  }
+}
