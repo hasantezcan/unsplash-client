@@ -1,18 +1,24 @@
 import "./App.css";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import ImageList from "./components/ImageList";
 import SideBar from "./components/SideBar";
+import Explore from "./pages/Explore";
+import ImageSearch from "./pages/ImageSearch/index";
+import NotFound404 from "./pages/NotFound404";
 // import Debuging from "./components/Debuging";
 
 function App() {
 	return (
-		<div>
+		<Router>
 			<Navbar />
-			<SideBar pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
 			{/* <Debuging /> */}
-			<ImageList />
-		</div>
+			<SideBar pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
+			<Switch>
+				<Route path="/" exact component={ImageSearch} />
+				<Route path="/explore" component={Explore} />
+				<Route path="*" component={NotFound404} />
+			</Switch>
+		</Router>
 	);
 }
 

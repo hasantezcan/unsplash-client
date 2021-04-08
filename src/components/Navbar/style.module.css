@@ -2,14 +2,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 5;
+  /* z-index: 4; */
   height: 120px;
   width: 100%;
   position: fixed;
   box-shadow: 0 0 20px -5px black;
   background-color: #050417;
 }
-
 
 .searchBox {
   display: flex;
@@ -19,12 +18,26 @@
 
 .logo {
   margin-left: 50px;
-  width: 40%;
 }
 
 .logo img {
   width: 70px;
   height: auto;
+}
+
+.paths a {
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
+.leftSide {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5%;
 }
 
 @media (max-width: 768px) {

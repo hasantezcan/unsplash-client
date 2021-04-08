@@ -3,13 +3,11 @@ import { SearchProvider } from "../Context/Search";
 import axios from "axios";
 
 const WithSearch = ({ children }) => {
-	const [collections, setCollections] = useState([
-		["", "Please Select Collection"],
-	]);
+	const [collections, setCollections] = useState([["", "None"]]);
 	const [selectedCollection, setSelectedCollection] = useState({});
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
-	const [queryResults, setQueryResults] = useState("NO DATA");
+	const [queryResults, setQueryResults] = useState([]);
 	const [totalPageCount, setTotalPageCount] = useState("");
 	const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
@@ -42,6 +40,8 @@ const WithSearch = ({ children }) => {
 	// Fetch images
 	useEffect(() => {
 		const fetchImages = async () => {
+			setSearchStatus(false);
+
 			// console.log(
 			// 	"---------> PARAMS",
 			// 	"Query:",
@@ -50,7 +50,7 @@ const WithSearch = ({ children }) => {
 			// 	selectedCollection.id
 			// );
 			if (!searchStatus | !queryInput && selectedCollection.id === undefined) {
-				setQueryResults("WILL");
+				setQueryResults([]);
 				// console.log("NO FETCH:", queryResults);
 				return false;
 			}
@@ -77,7 +77,6 @@ const WithSearch = ({ children }) => {
 			// console.log("YES FETCH:", queryResults);
 		};
 		fetchImages();
-		setSearchStatus(false);
 		// eslint-disable-next-line
 	}, [searchStatus]);
 
@@ -99,6 +98,7 @@ const WithSearch = ({ children }) => {
 		queryResults,
 		setQueryResults,
 		totalPageCount,
+		setTotalPageCount,
 		currentPageNumber,
 		setCurrentPageNumber,
 	};

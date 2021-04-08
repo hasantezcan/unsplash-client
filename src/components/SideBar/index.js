@@ -26,10 +26,13 @@ const SideBar = () => {
 
 	return (
 		<div className="sideBar">
-			<Menu right width={"80%"} >
+			<Menu right width={"80%"}>
 				<QueryInput className="menu-item" />
 				<CollectionSelect className="menu-item" />
 				<SearchButton className="menu-item" />
+				<a id="contact" className="menu-item" href="/explore">
+					Explore
+				</a>
 			</Menu>
 		</div>
 	);

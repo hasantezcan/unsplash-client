@@ -1,6 +1,7 @@
 import CollectionSelect from "../CollectionSelect";
 import QueryInput from "../QueryInput/index";
 import SearchButton from "../SearchButton";
+import { Link } from "react-router-dom";
 
 import Logo from "../../assets/images/Logo.png";
 import style from "./style.module.css";
@@ -8,10 +9,13 @@ import style from "./style.module.css";
 const Navbar = () => {
 	return (
 		<div className={style.navbar}>
-			<div className={style.logo}>
+			<div className={style.leftSide}>
 				<a href="/">
-					<img src={Logo} alt="" />
+					<img className={style.logo} src={Logo} alt="" />
 				</a>
+				<div className={style.paths}>
+					<Link to="/explore">Random</Link>
+				</div>
 			</div>
 			<div className={style.searchBox}>
 				<QueryInput />

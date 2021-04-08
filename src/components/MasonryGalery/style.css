@@ -4,6 +4,7 @@
   display: flex;
   margin-left: 4%;
   width: 60%;
+  z-index: -1;
 }
 .my-masonry-grid_column {
   /* padding-left: 30px; */

@@ -1,5 +1,23 @@
 .collectionWrapper {
   position: relative;
+  z-index: 6;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+}
+
+.backdrop .transparent {
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 120px;
+  height: 100%;
+  width: 100%;
 }
 
 .collectionSelect {
@@ -15,6 +33,11 @@
   background-position-y: 50%;
   background-color: #fff;
   border-radius: 4px;
+  border: none;
+}
+
+.collectionSelect:focus {
+  outline: none;
 }
 
 .collectionSelect select {
@@ -34,7 +57,7 @@
 
 .collectionOptionGroup {
   position: absolute;
-  box-shadow: 0 0 20px -5px black;
+  box-shadow: 0 0 10px -5px black;
   transition: all 0.2s;
 }
 
@@ -57,7 +80,7 @@
 }
 
 .collectionOption:first-child {
-  display: none;
+  /* display: none; */
 }
 
 .collectionOption ~ .collectionOption {
@@ -83,5 +106,8 @@
     width: 100%;
     font-size: 15px;
     height: unset;
+  }
+  .backdrop {
+    display: none;
   }
 }

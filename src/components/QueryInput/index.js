@@ -17,8 +17,8 @@ const QueryInput = () => {
 		}
 	};
 
-	const clearInput = () => {
-		setQueryInput("");
+	const clearInput = (e) => {
+		e.target.select();
 	};
 
 	return (

@@ -14,13 +14,14 @@ const breakpointColumnsObj = {
 	820: 1,
 };
 
-const ImageList = () => {
+const MasonryGalery = ({ queryResults, isPagination = false }) => {
 	const {
-		queryResults,
 		totalPageCount,
 		currentPageNumber,
 		setCurrentPageNumber,
 		setSearchStatus,
+		queryInput,
+		selectedCollection,
 	} = useSearch();
 
 	console.log("DATA RESULTS IN LIST LENGHTT:", queryResults.length);
@@ -43,45 +44,48 @@ const ImageList = () => {
 							return <ImageCard image={image} key={i} />;
 						})}
 					</Masonry>
-					<ReactPaginate
-						previousLabel={"Previous"}
-						nextLabel={"Next"}
-						breakLabel={false}
-						breakClassName={"break-me"}
-						pageCount={totalPageCount}
-						marginPagesDisplayed={1}
-						pageRangeDisplayed={2}
-						onPageChange={handlePageNumber}
-						containerClassName={"pagination"}
-						subContainerClassName={"pages pagination"}
-						activeClassName={"active"}
-						forcePage={currentPageNumber - 1}
-					/>
+					{isPagination && (
+						<ReactPaginate
+							previousLabel={"Previous"}
+							nextLabel={"Next"}
+							breakLabel={false}
+							breakClassName={"break-me"}
+							pageCount={totalPageCount}
+							marginPagesDisplayed={1}
+							pageRangeDisplayed={2}
+							onPageChange={handlePageNumber}
+							containerClassName={"pagination"}
+							subContainerClassName={"pages pagination"}
+							activeClassName={"active"}
+							forcePage={currentPageNumber - 1}
+						/>
+					)}
 				</div>
 			);
-		} else if (queryResults.length === 0) {
+		} else if (
+			queryResults.length === 0 &&
+			!queryInput.length &&
+			!selectedCollection.id
+		) {
 			return (
 				<div className="masonryContainer">
-					<p>We can't find any results about that search. </p>
+					<p>Please enter search parameters</p>
 				</div>
 			);
 		} else {
-			return <p className="masonryContainer">Unexpected Error</p>;
+			return (
+				<div className="masonryContainer">
+					<p>We can't find any results about that search. </p>{" "}
+				</div>
+			);
 		}
-	} else if (queryResults === "WILL") {
+	} else {
 		return (
 			<div className="masonryContainer">
 				<Loading />
 			</div>
 		);
-	} else {
-		return (
-			// TODO This section is not working
-			<div className="masonryContainer">
-				<p>Please enter search parameters</p>
-			</div>
-		);
 	}
 };
 
-export default ImageList;
+export default MasonryGalery;
