@@ -1,6 +1,6 @@
 .sideBar {
-  z-index: 4;
   display: none;
+  width: 100%;
 }
 
 /* Position and sizing of burger button */
@@ -19,7 +19,7 @@
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #2c3e8a;
 }
 
 /* Position and sizing of clickable cross button */
@@ -44,7 +44,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: #050417de;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -81,7 +81,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 @media (max-width: 768px) {
   .sideBar {
-    z-index: 4;
     display: block;
+  }
+  .bm-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }

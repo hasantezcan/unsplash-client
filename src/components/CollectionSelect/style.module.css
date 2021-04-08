@@ -31,3 +31,12 @@
   right: 9px;
   border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+  .collectionSelect {
+    width: 100%;
+  }
+  .collectionWrapper::before {
+    width: 90%;
+  }
+}

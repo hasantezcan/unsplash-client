@@ -17,3 +17,10 @@
 .searchButton:hover {
   background: #2a2c8db4;
 }
+
+@media (max-width: 768px) {
+  .searchButton {
+    width: 80%;
+    align-self: center;
+  }
+}
