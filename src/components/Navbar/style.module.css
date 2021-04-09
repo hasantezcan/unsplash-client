@@ -7,6 +7,7 @@
   position: fixed;
   box-shadow: 0 0 20px -5px black;
   background-color: #050417;
+  z-index: 2;
 }
 
 .searchBox {
@@ -58,16 +59,11 @@
   }
 
   .logo {
-   margin-left: 25%;
+    margin-left: 25%;
     width: 60px;
   }
 
-  /* .logo img {
-    width: 55px;
-    height: auto;
-  } */
-
-  .randomButton{
+  .randomButton {
     display: none;
   }
 }
