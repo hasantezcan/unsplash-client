@@ -26,16 +26,17 @@ const MasonryGalery = ({ queryResults, isPagination = true }) => {
 		setSearchStatus(true);
 	};
 
-	return queryResults ? (
+	return Array.isArray(queryResults) ? (
 		<div className="masonryContainer">
 			<Masonry
 				breakpointCols={breakpointColumnsObj}
 				className="my-masonry-grid"
 				columnClassName="my-masonry-grid_column"
 			>
-				{queryResults.map((image, i) => {
-					return <ImageCard image={image} key={i} />;
-				})}
+				{Array.isArray(queryResults) &&
+					queryResults.map((image, i) => {
+						return <ImageCard image={image} key={i} />;
+					})}
 			</Masonry>
 			{isPagination && (
 				<ReactPaginate

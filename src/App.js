@@ -7,7 +7,7 @@ import ImageSearch from "./pages/ImageSearch/index";
 import NotFound404 from "./pages/NotFound404";
 import WithSearch from "./Hocs/WithSearch";
 import WithResult from "./Hocs/WithResult";
-// import Debuging from "./components/Debuging";
+// import Debuging from "./components/Debuging";	
 
 function App() {
 	return (

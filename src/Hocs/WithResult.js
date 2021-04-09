@@ -15,17 +15,15 @@ const WithResult = ({ children }) => {
 		if (Array.isArray(queryResults)) {
 			if (queryResults.length > 0) {
 				setResultStatus("success");
-			} else if (
-				queryResults.length === 0 &&
-				!queryInput.length &&
-				!selectedCollection.id
-			) {
-				setResultStatus("enter params");
 			} else {
 				setResultStatus("not found");
 			}
 		} else {
-			setResultStatus("loading");
+			if (queryInput.length === 0 && !selectedCollection.id) {
+				setResultStatus("enter params");
+			} else {
+				setResultStatus("loading");
+			}
 		}
 		// eslint-disable-next-line
 	}, [searchStatus, queryResults]);

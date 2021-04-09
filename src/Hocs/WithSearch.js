@@ -7,7 +7,7 @@ const WithSearch = ({ children }) => {
 	const [selectedCollection, setSelectedCollection] = useState({});
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
-	const [queryResults, setQueryResults] = useState([]);
+	const [queryResults, setQueryResults] = useState(null);
 	const [totalPageCount, setTotalPageCount] = useState("");
 	const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
@@ -41,10 +41,15 @@ const WithSearch = ({ children }) => {
 		const fetchImages = async () => {
 			setSearchStatus(false);
 
-			if (!searchStatus | !queryInput && selectedCollection.id === undefined) {
-				setQueryResults([]);
+			if (!searchStatus) {
 				return false;
 			}
+
+			if (!queryInput && selectedCollection.id === undefined) {
+				setQueryResults(null);
+				return false;
+			}
+
 			let ENDPOINT = "";
 			if ((queryInput.length && selectedCollection.id) || queryInput.length) {
 				// prettier-ignore
