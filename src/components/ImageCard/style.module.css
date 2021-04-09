@@ -81,15 +81,32 @@
   font-weight: bold;
 }
 
-.collectButton {
+.likeCount {
   position: absolute;
   top: 15px;
   right: 13%;
   transition: all 0.1s;
-  color: #767676;
+  color: white;
+  filter: none;
+  opacity: 0%;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  gap: 5px;
 }
 
-.imageCard:hover .collectButton {
+.likeCount p {
+  font-size: 17px;
+  filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.7));
+  user-select: none;
+}
+
+.likeIcon {
+  transition: all 0.1s;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.4));
+}
+
+.imageCard:hover .likeCount {
   opacity: revert;
 }
 

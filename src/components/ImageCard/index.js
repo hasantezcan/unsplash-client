@@ -3,8 +3,9 @@ import style from "./style.module.css";
 import cn from "classnames";
 
 import { useSearch } from "../../Context/Search";
-import { BiDownArrowAlt, BiPlus } from "react-icons/bi";
+import { BiDownArrowAlt } from "react-icons/bi";
 import DownloadingImageSvg from "../Loading/DownloadingImageSvg";
+import { AiFillHeart } from "react-icons/ai";
 
 const ImageCard = ({ image }) => {
 	const [isDownloading, setIsDownloading] = useState(false);
@@ -61,12 +62,11 @@ const ImageCard = ({ image }) => {
 					<BiDownArrowAlt className={style.downloadIcon} />
 				)}
 			</span>
-			{/* {  Collect Button } */}
-			<a href={image.urls.raw} target="_blank" rel="noopener noreferrer">
-				<span className={cn(style.button, style.collectButton)}>
-					<BiPlus className={style.collectIcon} />
-				</span>
-			</a>
+			{/* {  Photo's Like Count } */}
+			<span className={style.likeCount}>
+				<p>{image.likes}</p>
+				<AiFillHeart className={style.likeIcon} />
+			</span>
 			{/* {  Avatar } */}
 			<a
 				className={style.artist}

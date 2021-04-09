@@ -67,6 +67,7 @@ const WithSearch = ({ children }) => {
 			data.results ? setQueryResults(data.results) : setQueryResults(data);
 		};
 		fetchImages();
+		signiture();
 		// eslint-disable-next-line
 	}, [searchStatus]);
 
@@ -75,6 +76,18 @@ const WithSearch = ({ children }) => {
 		setQueryInput("Istanbul");
 		setSearchStatus(true);
 	}, []);
+
+	const signiture = () => {
+		console.log(
+			"This project was made by Hasan Tezcan.\n" +
+				"https://hasantezcan.dev/\n" +
+				"https://github.com/hasantezcan\n" +
+				"https://twitter.com/hasantezcann \n" +
+				"https://www.linkedin.com/in/hasantezcann/\n\n" +
+				"Thanks Unsplash API for images\n" +
+				"https://unsplash.com/"
+		);
+	};
 
 	const props = {
 		collections,
