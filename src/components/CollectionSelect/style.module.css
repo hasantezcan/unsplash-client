@@ -64,6 +64,7 @@
 .collectionTitle {
   float: left;
   color: #444444;
+  text-transform: capitalize;
 }
 
 .collectionOption {
@@ -77,6 +78,7 @@
   background-position-y: 50%;
   background-color: #fff;
   color: black;
+  text-transform: capitalize;
 }
 
 .collectionOption ~ .collectionOption {
@@ -105,5 +107,9 @@
   }
   .backdrop {
     display: none;
+  }
+
+  .collectionTitle {
+    float: left;
   }
 }

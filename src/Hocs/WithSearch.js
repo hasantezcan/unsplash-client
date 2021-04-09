@@ -27,8 +27,7 @@ const WithSearch = ({ children }) => {
 				await data.forEach((collection, i) => {
 					temp.push([
 						collection.id,
-						collection.title.charAt(0).toUpperCase() +
-							collection.title.slice(1),
+						collection.title.toLowerCase().replace("––", ""),
 					]);
 				});
 				setCollections((state) => [...state, ...temp]);
