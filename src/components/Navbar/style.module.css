@@ -39,6 +39,14 @@
   gap: 5%;
 }
 
+.randomButton {
+  font-size: 45px;
+  background: white;
+  color: #4065b0;
+  border-radius: 100%;
+  padding: 3px;
+}
+
 @media (max-width: 768px) {
   .searchBox {
     display: none;
@@ -50,12 +58,16 @@
   }
 
   .logo {
-    margin-left: 7%;
-    width: unset;
+   margin-left: 25%;
+    width: 60px;
   }
 
-  .logo img {
+  /* .logo img {
     width: 55px;
     height: auto;
+  } */
+
+  .randomButton{
+    display: none;
   }
 }

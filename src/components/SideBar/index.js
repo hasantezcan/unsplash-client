@@ -5,6 +5,7 @@ import { slide as Menu } from "react-burger-menu";
 import CollectionSelect from "../CollectionSelect";
 import QueryInput from "../QueryInput";
 import SearchButton from "../SearchButton";
+import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 
 import "./Sidebar.css";
 
@@ -30,9 +31,12 @@ const SideBar = () => {
 				<QueryInput className="menu-item" />
 				<CollectionSelect className="menu-item" />
 				<SearchButton className="menu-item" />
-				<a id="contact" className="menu-item" href="/explore">
-					Explore
-				</a>
+				<div className="menu-item">
+					<a href="/explore">
+						<GiPerspectiveDiceSixFacesRandom className="svg" />
+						<p>Explore</p>
+					</a>
+				</div>
 			</Menu>
 		</div>
 	);

@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/Logo.png";
 import style from "./style.module.css";
 
+import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
+
 const Navbar = () => {
 	return (
 		<div className={style.navbar}>
@@ -14,7 +16,9 @@ const Navbar = () => {
 					<img className={style.logo} src={Logo} alt="" />
 				</Link>
 				<div className={style.paths}>
-					<Link to="/explore">Random</Link>
+					<Link to="/explore">
+						<GiPerspectiveDiceSixFacesRandom title="Click Random Pictures" className={style.randomButton}/>
+					</Link>
 				</div>
 			</div>
 			<div className={style.searchBox}>
