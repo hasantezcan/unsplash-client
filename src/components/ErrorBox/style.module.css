@@ -26,4 +26,7 @@
     width: unset;
     margin-top: 100px;
   }
+  .bottom {
+    margin-top: unset;
+  }
 }
