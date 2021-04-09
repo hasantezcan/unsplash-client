@@ -1,0 +1,29 @@
+.textWrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  text-align: center;
+  padding: 24px;
+  background-color: rgba(255, 0, 0, 0.1);
+  width: 57%;
+  border-radius: 4px;
+  color: red;
+  margin-top: 130px;
+}
+
+.bottom {
+  margin-top: unset;
+}
+
+@media (max-width: 768px) {
+  .textWrapper {
+    padding: 10px;
+  }
+  .text {
+    width: unset;
+    margin-top: 100px;
+  }
+}

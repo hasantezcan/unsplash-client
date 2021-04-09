@@ -7,7 +7,7 @@ const WithSearch = ({ children }) => {
 	const [selectedCollection, setSelectedCollection] = useState({});
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
-	const [queryResults, setQueryResults] = useState(null);
+	const [queryResults, setQueryResults] = useState([]);
 	const [totalPageCount, setTotalPageCount] = useState("");
 	const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
@@ -42,16 +42,9 @@ const WithSearch = ({ children }) => {
 		const fetchImages = async () => {
 			setSearchStatus(false);
 
-			// console.log(
-			// 	"---------> PARAMS",
-			// 	"Query:",
-			// 	queryInput,
-			// 	"Collection:",
-			// 	selectedCollection.id
-			// );
 			if (!searchStatus | !queryInput && selectedCollection.id === undefined) {
-				setQueryResults(null);
-				// console.log("NO FETCH:", queryResults);
+				setQueryResults([]);
+				console.log("NO FETCH:", queryResults);
 				return false;
 			}
 			let ENDPOINT = "";

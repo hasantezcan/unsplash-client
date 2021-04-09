@@ -9,6 +9,7 @@ const Debuging = () => {
 		queryResults,
 		searchStatus,
 	} = useSearch();
+
 	return (
 		<div style={{ paddingTop: "150px" }}>
 			<h1>Unsplash Client</h1>
@@ -18,7 +19,7 @@ const Debuging = () => {
 			<p>Total Page: {totalPageCount}</p>
 			<p>Current: {currentPageNumber}</p>
 			{/* <p>Resault : {queryResults.toString()}</p> */}
-			{/* <p>SEARCH STATUS : {searchStatus.toString()}</p> */}
+			<p>SEARCH STATUS : {searchStatus.toString()}</p>
 		</div>
 	);
 };

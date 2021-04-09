@@ -40,6 +40,7 @@ const Explore = () => {
 						textMessage={
 							"Since we have a limited API rate, we only allow to only 3-time request per user right now :("
 						}
+						location={"bottom"}
 					/>
 				}
 			>
