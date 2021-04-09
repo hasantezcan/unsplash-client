@@ -44,7 +44,6 @@ const WithSearch = ({ children }) => {
 
 			if (!searchStatus | !queryInput && selectedCollection.id === undefined) {
 				setQueryResults([]);
-				console.log("NO FETCH:", queryResults);
 				return false;
 			}
 			let ENDPOINT = "";
@@ -60,14 +59,12 @@ const WithSearch = ({ children }) => {
 				ENDPOINT = `${URL}collections/${selectedCollection.id}/photos?${KEY}`;
 			}
 
-			// console.log("ENDPOINT", ENDPOINT);
 			const { data } = await axios.get(ENDPOINT);
 
 			data.total_pages
 				? setTotalPageCount(data.total_pages)
 				: setTotalPageCount("");
 			data.results ? setQueryResults(data.results) : setQueryResults(data);
-			// console.log("YES FETCH:", queryResults);
 		};
 		fetchImages();
 		// eslint-disable-next-line

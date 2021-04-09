@@ -11,7 +11,6 @@ import "./Sidebar.css";
 
 const SideBar = () => {
 	// const { searchStatus } = useSearch();
-	// console.log("SEARCH STATUS: ", searchStatus);
 
 	// var handleOnClose = function (state) {
 	// 	return false;

@@ -1,10 +1,13 @@
+import { useState } from "react";
 import style from "./style.module.css";
 import cn from "classnames";
 
 import { useSearch } from "../../Context/Search";
 import { BiDownArrowAlt, BiPlus } from "react-icons/bi";
+import DownloadingImageSvg from "../Loading/DownloadingImageSvg";
 
 const ImageCard = ({ image }) => {
+	const [isDownloading, setIsDownloading] = useState(false);
 	const { queryInput, selectedCollection } = useSearch();
 
 	function fetchImage(url) {
@@ -18,6 +21,10 @@ const ImageCard = ({ image }) => {
 	}
 
 	async function downloadImage(image, id) {
+		setIsDownloading(true);
+		setTimeout(() => {
+			setIsDownloading(false);
+		}, 3000);
 		const a = document.createElement("a");
 		a.href = await fetchImage(image);
 		a.download =
@@ -48,7 +55,11 @@ const ImageCard = ({ image }) => {
 				}}
 				className={cn(style.button, style.downloadButton)}
 			>
-				<BiDownArrowAlt className={style.downloadIcon} />
+				{isDownloading ? (
+					<DownloadingImageSvg />
+				) : (
+					<BiDownArrowAlt className={style.downloadIcon} />
+				)}
 			</span>
 			{/* {  Collect Button } */}
 			<a href={image.urls.raw} target="_blank" rel="noopener noreferrer">

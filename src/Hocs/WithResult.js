@@ -27,7 +27,6 @@ const WithResult = ({ children }) => {
 		} else {
 			setResultStatus("loading");
 		}
-		// console.log("resultStatus:", resultStatus);
 		// eslint-disable-next-line
 	}, [searchStatus, queryResults]);
 

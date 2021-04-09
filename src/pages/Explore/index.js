@@ -24,7 +24,6 @@ const Explore = () => {
 			await setRandomResults([...randomResults, ...data]);
 			setRequestCount(requestCount + 1);
 		} catch (error) {
-			console.log("EORRRRRRR", error);
 		}
 	};
 
