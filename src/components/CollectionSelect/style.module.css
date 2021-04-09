@@ -79,10 +79,6 @@
   color: black;
 }
 
-.collectionOption:first-child {
-  /* display: none; */
-}
-
 .collectionOption ~ .collectionOption {
   border-top: 1px solid #f3f4f8;
 }

@@ -7,7 +7,7 @@ const WithSearch = ({ children }) => {
 	const [selectedCollection, setSelectedCollection] = useState({});
 	const [queryInput, setQueryInput] = useState("");
 	const [searchStatus, setSearchStatus] = useState(false);
-	const [queryResults, setQueryResults] = useState([]);
+	const [queryResults, setQueryResults] = useState(null);
 	const [totalPageCount, setTotalPageCount] = useState("");
 	const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
@@ -16,7 +16,7 @@ const WithSearch = ({ children }) => {
 
 	// Fetch Collections
 	useEffect(() => {
-		setCollections([["", "Please Select Collection"]]);
+		setCollections([["", "None"]]);
 		const fetchCollections = async () => {
 			const { data } = await axios.get(
 				`https://api.unsplash.com/collections?client_id=${process.env.REACT_APP_UNSPLASH_API}`
@@ -50,7 +50,7 @@ const WithSearch = ({ children }) => {
 			// 	selectedCollection.id
 			// );
 			if (!searchStatus | !queryInput && selectedCollection.id === undefined) {
-				setQueryResults([]);
+				setQueryResults(null);
 				// console.log("NO FETCH:", queryResults);
 				return false;
 			}
@@ -67,7 +67,7 @@ const WithSearch = ({ children }) => {
 				ENDPOINT = `${URL}collections/${selectedCollection.id}/photos?${KEY}`;
 			}
 
-			console.log("ENDPOINT", ENDPOINT);
+			// console.log("ENDPOINT", ENDPOINT);
 			const { data } = await axios.get(ENDPOINT);
 
 			data.total_pages

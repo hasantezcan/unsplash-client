@@ -1,11 +1,9 @@
-import MasonryGalery from "../../components/MasonryGalery";
-import { useSearch } from "../../Context/Search";
+import Result from "../../components/Result";
 
 const ImageSearch = () => {
-	const { queryResults } = useSearch();
 	return (
 		<div>
-			<MasonryGalery queryResults={queryResults} isPagination={true} />
+			<Result />
 		</div>
 	);
 };

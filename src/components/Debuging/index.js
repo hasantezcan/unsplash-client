@@ -17,8 +17,8 @@ const Debuging = () => {
 			<h2>{selectedCollection.id}</h2>
 			<p>Total Page: {totalPageCount}</p>
 			<p>Current: {currentPageNumber}</p>
-			<p>Resault : {queryResults.toString()}</p>
-			<p>SEARCH STATUS : {searchStatus.toString()}</p>
+			{/* <p>Resault : {queryResults.toString()}</p> */}
+			{/* <p>SEARCH STATUS : {searchStatus.toString()}</p> */}
 		</div>
 	);
 };
