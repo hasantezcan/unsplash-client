@@ -6,7 +6,7 @@ Basic unoffical Unsplash web client. [Click For **DEMO**](https://unsplash-unoff
 This application was made for [Hipo Summer Internship Camp](https://hipolabs.com/internship/) application. 
 
 <p align="center">
-	<a href="https://coronastas.netlify.app/">
+	<a href="https://unsplash-unoffical-client-hasantezcan.vercel.app/">
 		<img alt="img-name" src="./preview.gif" width="800">
   <br>
 	</a>
